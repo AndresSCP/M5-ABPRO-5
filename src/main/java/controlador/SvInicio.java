@@ -2,7 +2,6 @@ package controlador;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +29,7 @@ public class SvInicio extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		// Obtener la sesión actual
         HttpSession session = request.getSession();
         // Obtener un atributo de sesión

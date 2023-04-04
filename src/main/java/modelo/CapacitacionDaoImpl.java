@@ -4,18 +4,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import conexion.ConexionSingleton;
 import interfaces.ICapacitacionDao;
 
 
 public class CapacitacionDaoImpl implements ICapacitacionDao{
-	
+
 	private Connection conexion = ConexionSingleton.conectar();
 	List<Capacitacion> capacitacion;
-	
+
 	//hacer la conexion , ejecutar la query, obtener los objetos del resultset
 
 	@Override
@@ -68,7 +68,7 @@ public class CapacitacionDaoImpl implements ICapacitacionDao{
 	@Override
 	public boolean actualizar(Capacitacion capacitacion) {
 //		String sql = "UPDATE capacitaciones SET rut=?,dia=?,hora=?,lugar=?,duracion=?,cantidad_asistentes=? WHERE id=?";
-		
+
 		try {
 			String sql = "UPDATE capacitacion SET rut=?,dia=?,hora=?,lugar=?,duracion=?,cantidad_asistentes=? WHERE id=?";
 			PreparedStatement ps = conexion.prepareStatement(sql);

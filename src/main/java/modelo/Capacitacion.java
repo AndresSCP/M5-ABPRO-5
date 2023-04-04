@@ -11,11 +11,11 @@ public class Capacitacion {
 	private String duracion;
 	private int cantidadAsistentes;
 
-	
+
 	/** metodo constructor vacio*/
 	public Capacitacion() {
 	}
-	
+
 	/** metodo constructor con los atributos como parametros */
 	public Capacitacion(int id, String nombreCapacitacion,long rut, String dia, String hora, String lugar, String duracion, int cantidadAsistentes ) {
 
@@ -99,5 +99,5 @@ public class Capacitacion {
 				+ ", hora=" + hora + ", lugar=" + lugar + ", duracion=" + duracion + ", cantidadAsistentes="
 				+ cantidadAsistentes + "]";
 	}
-	
+
 }

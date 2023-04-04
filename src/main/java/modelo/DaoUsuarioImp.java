@@ -2,25 +2,24 @@ package modelo;
 
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import interfaces.IUsuarioDAO;
 import conexion.ConexionSingleton;
 //import clases.Usuario;
+import interfaces.IUsuarioDAO;
 
 
 
 
 
 public class DaoUsuarioImp  implements IUsuarioDAO {
-	
+
 	private Connection conn;
-	
-	
+
+
 
 	public DaoUsuarioImp() {
 		conn = ConexionSingleton.conectar();
@@ -30,15 +29,15 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 	public void addUsuario(Usuario usuario) throws Exception {
 		try {
 			 PreparedStatement st = conn.prepareStatement("INSERT INTO usuarios (run, nombre, apellidos, fechaNac, idUsuario) VALUES (?,?,?,?,?);");
-			 
+
 			 st.setInt(1, usuario.getRunUsuario());
 			 st.setString(2, usuario.getNombreUsuario());
 			 st.setString(3, usuario.getApellidoUsuario());
 			 st.setString(4, usuario.getFechaNacimientoUsuario());
 			 st.setInt(5, 3456);// Ojo le pongo este valor fijo es para que tenga relacion despues con los clientes asi esta en la base de datos
 			 st.executeUpdate();
-	         
-	 
+
+
 		}catch(Exception e) {
 			throw e;
 		}finally {
@@ -50,16 +49,16 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		        }
 		    }
 		}
-		
+
 	}
 
 	@Override
 	public ArrayList<Usuario> listarUsuario() throws Exception {
-		ArrayList<Usuario> lista=  new ArrayList<Usuario>();
+		ArrayList<Usuario> lista=  new ArrayList<>();
 		try {
 			 PreparedStatement st = conn.prepareStatement("SELECT run, nombre, apellidos, fechaNac FROM usuarios;");
-			 
-			 
+
+
 			 ResultSet rs = st.executeQuery();
 			 while(rs.next()) {
 				 Usuario user = new Usuario();
@@ -73,8 +72,8 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 			 }
 			 rs.close();
 			 st.close();
-			 
-			 
+
+
 		}catch(Exception e) {
 			throw e;
 		}finally {
@@ -96,7 +95,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 			 st.setString(1, usuario.getNombreUsuario());
 			 st.setInt(2, usuario.getId());
 			 st.executeUpdate();
-			
+
 		}catch(Exception e) {
 			throw e;
 		}finally {
@@ -108,7 +107,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		        }
 		    }
 		}
-		
+
 	}
 
 	@Override
@@ -117,7 +116,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 			 PreparedStatement st = conn.prepareStatement("DELETE FROM usuarios WHERE id= ?");
 			 st.setInt(1, usuario.getId());
 			 st.executeUpdate();
-		 
+
 		}catch(Exception e) {
 			throw e;
 		}finally {
@@ -129,7 +128,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		        }
 		    }
 		}
-		
+
 	}
 
 }
