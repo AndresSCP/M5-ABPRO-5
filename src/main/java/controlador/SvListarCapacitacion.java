@@ -1,8 +1,8 @@
 package controlador;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,19 +37,19 @@ public class SvListarCapacitacion extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
             // Obtener la sesión actual
             HttpSession session = request.getSession();
-            
+
             // Obtener un atributo de sesión
             String username = (String) session.getAttribute("username");
 
             //Verificar que la session este activa
             if (session.getAttribute("username") != null) {
-            
+
                 ICapacitacionDao capacitacionDao = new CapacitacionDaoImpl();
 		        miArrayList = capacitacionDao.obtener();
-		
+
 		// Establecer el atributo miLista en el objeto request
 		request.setAttribute("miLista", miArrayList);
 

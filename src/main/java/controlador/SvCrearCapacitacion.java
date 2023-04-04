@@ -1,7 +1,7 @@
 package controlador;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -75,7 +75,7 @@ public class SvCrearCapacitacion extends HttpServlet {
 		if(cantidadAsistentesStr != null && !cantidadAsistentesStr.isEmpty()) {
 		   cantidadAsistentes = Integer.parseInt(cantidadAsistentesStr);
 		}
-		
+
 		// Crear el objeto de tipo Capacitacion con los parámetros recibidos
 		Capacitacion nuevaCapacitacion = new Capacitacion();
 	    nuevaCapacitacion.setNombreCapacitacion(nombreCapacitacion);
@@ -97,7 +97,7 @@ public class SvCrearCapacitacion extends HttpServlet {
 		} else {
 			response.sendRedirect("CreacionDeCapacitacion.jsp");
 		}
-		
+
 	}
-	
+
 }

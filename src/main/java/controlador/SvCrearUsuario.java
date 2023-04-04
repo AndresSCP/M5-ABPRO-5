@@ -2,7 +2,6 @@ package controlador;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import interfaces.IUsuarioDAO;
-import modelo.DaoUsuarioImp;
+import interfaces.IUsuarioDao;
+import modelo.UsuarioDaoImpl;
 import modelo.Usuario;
 
 /**
@@ -41,22 +40,22 @@ public class SvCrearUsuario extends HttpServlet {
 		String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String fechaNac = request.getParameter("fechaNac");
-        
+
         //Creo el usuario y le asigno los valores recibidos por post
         Usuario user = new Usuario();
-        
+
         user.setRunUsuario(run);
 		user.setNombreUsuario(nombre);
 		user.setApellidoUsuario(apellido);
 		user.setFechaNacimientoUsuario(fechaNac);
-        
+
         //Creo el objeto Dao que tendra los metodos CRUD entre ellos Insertar
 		try {
-			IUsuarioDAO  dao = new DaoUsuarioImp();
+			IUsuarioDao  dao = new UsuarioDaoImpl();
 			dao.addUsuario(user);// Como todos los metodos dao lanzan excepciones deben colocarse en un try catch
 		} catch (Exception  e) {
 			 System.out.println(e.getMessage());
-       }	
+       }
 		// Obtener la sesión actual
         HttpSession session = request.getSession();
 
