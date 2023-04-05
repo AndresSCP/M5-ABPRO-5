@@ -2,27 +2,23 @@ package modelo;
 
 
 public class Usuario {
-	private  Integer id; // Autoincremetable
+	
 	private  Integer runUsuario; // RUN del usuario (menor a 99.999.999)
 	private  String nombreUsuario; // nombres que identifica al usuario
-	private  String apellidoUsuario; // apellidos que identifica al usuario
 	private  String fechaNacimientoUsuario; // fecha de nacimiento del usuario
-	private  int idUsuario;
-
-
+	private  Integer tipoUsuario; // Tipo de Usuario que se crea: 1 Cliente, 2 Profesional, 3 Administrativo
+			
 
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(Integer id, Integer runUsuario, String nombreUsuario, String apellidoUsuario,
-			String fechaNacimientoUsuario, int idUsuario) {
-		this.id = id;
-		this.runUsuario = runUsuario;
-		this.nombreUsuario = nombreUsuario;
-		this.apellidoUsuario = apellidoUsuario;
-		this.fechaNacimientoUsuario = fechaNacimientoUsuario;
-		this.idUsuario = idUsuario;
+	public Usuario( Integer run, String nombre,String fechaNac,Integer tipo) {
+		super();
+		this.runUsuario = run;
+		this.nombreUsuario = nombre;
+		this.fechaNacimientoUsuario = fechaNac;
+		this.tipoUsuario = tipo;
 	}
 	
 //	public Usuario( Integer runUsuario, String nombreUsuario, String apellidoUsuario, String fechaNacimientoUsuario) {
@@ -34,14 +30,6 @@ public class Usuario {
 //		this.fechaNacimientoUsuario = fechaNacimientoUsuario;
 //		//this.idUsuario = idUsuario;
 //	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public Integer getRunUsuario() {
 		return runUsuario;
@@ -59,14 +47,6 @@ public class Usuario {
 		this.nombreUsuario = nombreUsuario;
 	}
 
-	public String getApellidoUsuario() {
-		return apellidoUsuario;
-	}
-
-	public void setApellidoUsuario(String apellidoUsuario) {
-		this.apellidoUsuario = apellidoUsuario;
-	}
-
 	public String getFechaNacimientoUsuario() {
 		return fechaNacimientoUsuario;
 	}
@@ -75,17 +55,21 @@ public class Usuario {
 		this.fechaNacimientoUsuario = fechaNacimientoUsuario;
 	}
 
-	public Integer getIdUsuario() {
-		return idUsuario;
+	public Integer getTipoUsuario() {
+		return tipoUsuario;
 	}
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setTipoUsuario(Integer tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [runUsuario=" + runUsuario + ", nombreUsuario=" + nombreUsuario + ", fechaNacimientoUsuario="
+				+ fechaNacimientoUsuario + ", tipoUsuario=" + tipoUsuario + "]";
+	}
+
+}	
+	
 
 
-
-
-
-}

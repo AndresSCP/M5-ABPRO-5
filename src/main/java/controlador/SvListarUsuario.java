@@ -19,7 +19,7 @@ import modelo.Usuario;
 /**
  * Servlet implementation class UsuarioServlet
  */
-@WebServlet("/UsuarioServlet")
+@WebServlet("/SvListarUsuario")
 public class SvListarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Usuario> miArrayList = new ArrayList<>();

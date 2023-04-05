@@ -5,21 +5,21 @@ public class Administrativo extends Usuario {
 	private String area;
 	private String expPrevia;
 	private String email;
-	private int run;
+
 
 	/**
 	 * 
 	 * Constructor por defecto.
 	 */
 	public Administrativo() {
+		
 	}
 
-	public Administrativo(int id,String nombreUsuario,String apellidoUsuario, String fechaNacimientoUsuario, int runUsuario, String area, String expPrevia, String email, int run, int idUsuario) {
-		super(id, runUsuario, nombreUsuario, apellidoUsuario, fechaNacimientoUsuario, idUsuario);
+	public Administrativo(Integer runUsuario, String nombreUsuario, String fechaNacimientoUsuario,Integer tipoUsuario, String area, String expPrevia, String email) {
+		super(runUsuario, nombreUsuario, fechaNacimientoUsuario, tipoUsuario);
 		this.area = area;
 		this.expPrevia = expPrevia;
 		this.email = email;
-		this.run = run;
 	}
 
 	public String getArea() {
@@ -46,17 +46,9 @@ public class Administrativo extends Usuario {
 		this.email = email;
 	}
 
-	public int getRun() {
-		return run;
-	}
-
-	public void setRun(int run) {
-		this.run = run;
-	}
-
 	@Override
 	public String toString() {
-		return "Administrativo [area=" + area + ", expPrevia=" + expPrevia + ", email=" + email + ", run=" + run + "]";
+		return "Administrativo [area=" + area + ", expPrevia=" + expPrevia + ", email=" + email + "]";
 	}
 		
 }

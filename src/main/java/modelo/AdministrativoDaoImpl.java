@@ -18,14 +18,14 @@ public class AdministrativoDaoImpl implements IAdministrativoDao{
         try {
             String sql = "INSERT INTO administrativos (run, nombres, apellidos, fecha_nacimiento_usuario, email, area, exPrevia, idUsuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = conexion.prepareStatement(sql);
-            statement.setInt(1, administrativo.getRun());
+//            statement.setInt(1, administrativo.getRun());
             statement.setString(2, administrativo.getNombreUsuario());
-            statement.setString(3, administrativo.getApellidoUsuario());
+//            statement.setString(3, administrativo.getApellidoUsuario());
             statement.setString(4, administrativo.getFechaNacimientoUsuario());
             statement.setString(5, administrativo.getEmail());
             statement.setString(6, administrativo.getArea());
             statement.setString(7, administrativo.getExpPrevia());
-            statement.setLong(8, administrativo.getIdUsuario());
+//            statement.setLong(8, administrativo.getIdUsuario());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -37,14 +37,14 @@ public class AdministrativoDaoImpl implements IAdministrativoDao{
         try {
             String sql = "UPDATE administrativos SET run=?, nombres=?, apellidos=?, fecha_nacimiento_usuario=?, email=?, area=?, exPrevia=? WHERE id=?";
             PreparedStatement statement = conexion.prepareStatement(sql);
-            statement.setInt(1, administrativo.getRun());
+//            statement.setInt(1, administrativo.getRun());
             statement.setString(2, administrativo.getNombreUsuario());
-            statement.setString(3, administrativo.getApellidoUsuario());
+//            statement.setString(3, administrativo.getApellidoUsuario());
             statement.setString(4, administrativo.getFechaNacimientoUsuario());
             statement.setString(5, administrativo.getEmail());
             statement.setString(6, administrativo.getArea());
             statement.setString(7, administrativo.getExpPrevia());
-            statement.setLong(8, administrativo.getIdUsuario());
+//            statement.setLong(8, administrativo.getIdUsuario());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -72,9 +72,9 @@ public class AdministrativoDaoImpl implements IAdministrativoDao{
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Administrativo administrativo = new Administrativo();
-				administrativo.setRun(rs.getInt("run"));
+//				administrativo.setRun(rs.getInt("run"));
 				administrativo.setNombreUsuario(rs.getString("nombres"));
-				administrativo.setApellidoUsuario(rs.getString("apellidos"));
+//				administrativo.setApellidoUsuario(rs.getString("apellidos"));
 				administrativo.setFechaNacimientoUsuario(rs.getString("fecha_nacimiento_usuario"));
 				administrativo.setEmail(rs.getString("email"));
 				administrativo.setArea(rs.getString("area"));
