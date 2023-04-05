@@ -17,7 +17,7 @@ import modelo.Usuario;
 /**
  * Servlet implementation class CrearCapacitacion
  */
-@WebServlet("/CrearUserServlet")
+@WebServlet("/svCrearUsuario")
 public class SvCrearUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,16 +39,16 @@ public class SvCrearUsuario extends HttpServlet {
 		String runSinDigito = runCompleto.substring(0, runCompleto.length() - 2);
 		Integer run = Integer.parseInt(runSinDigito);
 		String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
         String fechaNac = request.getParameter("fechaNac");
+        Integer tipoUsuario = Integer.parseInt(request.getParameter("tipoUsuario"));
         
         //Creo el usuario y le asigno los valores recibidos por post
         Usuario user = new Usuario();
         
         user.setRunUsuario(run);
 		user.setNombreUsuario(nombre);
-		user.setApellidoUsuario(apellido);
 		user.setFechaNacimientoUsuario(fechaNac);
+		user.setTipoUsuario(tipoUsuario);
         
         //Creo el objeto Dao que tendra los metodos CRUD entre ellos Insertar
 		try {
