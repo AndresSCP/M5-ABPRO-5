@@ -57,15 +57,18 @@ p{
 }
 
 #bodycapacitacion{
-	background-image: url('../imagenes/violeta5.jpg');
+	background-image: url('../imagenes/celeste13.jpg');
+	background-size:cover;
 }
 
 #bodycontacto{
-	background-image: url('../imagenes/violeta5.jpg');
+	background-image: url('../imagenes/celeste13.jpg');
+	background-size:cover;
 }
 
 #bodylistado{
-	background-image: url('../imagenes/violeta5.jpg');
+	background-image: url('../imagenes/celeste13.jpg');
+	background-size:cover;
 }
 
 #bodynav {
