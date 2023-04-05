@@ -6,6 +6,6 @@ import modelo.Capacitacion;
 public interface ICapacitacion {
 	
     List<Capacitacion> obtenerCapacitaciones();
-    void registrarCapacitacion(Capacitacion capacitacion);
+    String registrarCapacitacion(Capacitacion capacitacion);
 
 }
