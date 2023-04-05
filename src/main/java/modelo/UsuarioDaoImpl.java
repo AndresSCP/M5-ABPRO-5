@@ -9,19 +9,19 @@ import java.util.ArrayList;
 
 import conexion.ConexionSingleton;
 //import clases.Usuario;
-import interfaces.IUsuarioDAO;
+import interfaces.IUsuarioDao;
 
 
 
 
 
-public class DaoUsuarioImp  implements IUsuarioDAO {
+public class UsuarioDaoImpl  implements IUsuarioDao {
 
 	private Connection conn;
 
 
 
-	public DaoUsuarioImp() {
+	public UsuarioDaoImpl() {
 		conn = ConexionSingleton.conectar();
 	}
 

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import interfaces.IUsuarioDAO;
-import modelo.DaoUsuarioImp;
+import interfaces.IUsuarioDao;
+import modelo.UsuarioDaoImpl;
 import modelo.Usuario;
 
 /**
@@ -33,7 +33,7 @@ public class SvListarUsuario extends HttpServlet {
 
 
 		try {
-			IUsuarioDAO DaoUsuario = new DaoUsuarioImp();// Ojo que aqui esta la caida
+			IUsuarioDao DaoUsuario = new UsuarioDaoImpl();// Ojo que aqui esta la caida
 			miArrayList = DaoUsuario.listarUsuario();
 		 } catch (Exception  e) {
 			 System.out.println(e.getMessage());
