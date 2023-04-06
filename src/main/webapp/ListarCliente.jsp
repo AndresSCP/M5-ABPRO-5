@@ -12,29 +12,45 @@
     <body id="bodylistado">
        
 
-       <h1>Listado de Usuarios</h1>
+       <h1>Listado de Clientes</h1>
          <div class="container">
 		 <table class="table">
                 <thead>
                     <tr>
                         
-                        <th>RUN Usuario</th>
-                        <th>Nombres</th>
-                        <th>Fecha de Nacimiento</th>
-                        <th>Tipo Usuario</th>                       
+                        <th>Username</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Tipo Usuario</th>
+                        <th>Run</th>
+                        <th>Nombre Cliente</th>
+                        <th>Apellido Cliente</th>
+                        <th>Telefono</th>
+                        <th>AFP</th>
+                        <th>Sistema Salud</th>
+                        <th>Dirección</th>
+                        <th>Comuna</th>
+                        <th>Edad</th>                       
                     </tr>
                 </thead>
 
                 <tbody>
                 	<!--<c:out value="${miListaUsuario}" /> con esto se valida si trae datos -->
-                    <c:forEach var="usuario" items="${miListaUsuario}">
+                    <c:forEach var="cliente" items="${miListaCliente}">
                        
                         
                         <tr>
-                            <th>${usuario.runUsuario}</th>
-                            <td>${usuario.nombreUsuario}</td>
-                            <td>${usuario.fechaNacimientoUsuario}</td>
-                            <td>${usuario.tipoUsuario}</td>
+                            <td>${cliente.nombreUsuario}</td>
+                            <td>${cliente.fechaNacimientoUsuario}</td>
+                            <td>${cliente.tipoUsuario}</td>
+                            <td>${cliente.runUsuario}</td>
+                            <td>${cliente.nombres}</td>
+                            <td>${cliente.apellidos}</td>
+                            <td>${cliente.telefono}</td>
+                            <td>${cliente.afp}</td>
+                            <td>${cliente.sistemaSalud}</td>
+                            <td>${cliente.direccion}</td>
+                            <td>${cliente.comuna}</td>
+                            <td>${cliente.edad}</td>
                                                          
                         </tr>
                 
