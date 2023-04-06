@@ -3,40 +3,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 		  rel="stylesheet"
 		  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 		  crossorigin="anonymous">
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="css/Style.css">
-	
 	
 	<%@include file="extras/Navbar.jsp" %>
 </head>
-<body id="bodycapacitacion">
+<body id="bodycliente">
 	<div class="container">
-		<h1 class="text-center">Crear Usuario</h1>
-		<form action="svCrearUsuario" method="post">
+		<h1 class="text-center">Crear Cliente</h1>
+		<form action="SvCrearCliente" method="post">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
 						<div class="form-group">
-						    <label for="nombre">Nombres de Usuario:</label>
-						    <input type="text" id="nombre" name="nombre" class="form-control" maxlength="30" minlength="10" required>
-						    <span id="nombre-error" class="text-danger d-none">Ingrese al menos 10 caracteres.</span>
+						    <label for="nombre">Nombres</label>
+						    <input type="text" id="nombre" name="nombre" class="form-control" maxlength="30" minlength="5" required>
+						    <span id="nombre-error" class="text-danger d-none">Ingrese al menos 5 caracteres.</span>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-					    <label for="tipoUsuario">Tipo de Usuario</label>
-					    <select id="tipoUsuario" name="tipoUsuario" class="form-control" required>
-					        <option value="">Seleccione un tipo de usuario</option>
-					        <option value=1>Cliente</option>
-					        <option value=2>Profesional</option>
-					        <option value=3>Administrativo</option>
-					    </select>
-					    <span id="tipoUsuario-error" class="text-danger" style="display: none;">Seleccione un tipo de usuario.</span>
+					    <label for="apellido">Apellidos</label>
+					    <input type="text" id="apellido" name="apellido" class="form-control" maxlength="30" minlength="5" required>
+					    <span id="apellido-error" class="text-danger" style="display: none;">Ingrese al menos 5 caracteres.</span>
 					</div>
 				</div>
 			</div>
@@ -44,19 +38,56 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-  						<label for="run" class="form-label">RUN:</label>
- 						 <input type="text" id="run" name="run" class="form-control" maxlength="10" required 
-        						 pattern="\d{7,8}-[Kk\d]" onblur="validarRut()">
-  					<div class="invalid-feedback">Ingrese un RUN válido (Ej: 12345678-9)</div>
-				</div>
+  						<label for="telefono" class="form-label">Telefono:</label>
+ 						 <input type="text" id="telefono" name="telefono" class="form-control" maxlength="15" required >
+  				</div>
 					
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						  <label for="fechaNac">Fecha de Nacimiento</label>
-						  <input type="date" id="fechaNac" name="fechaNac" class="form-control" required 
-						         min="1900-01-01" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" 
-						         title="Ingrese la fecha en formato AAAA-MM-DD">
+						  <label for="afp">AFP</label>
+						  <input type="text" id="afp" name="afp" class="form-control" required>
+						         
+					</div>
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+  						<label for="sistSalud" class="form-label">Sistema de Salud:</label>
+                    <select class="form-select" id="sistSalud" name="sistSalud" required>
+                        <option selected disabled value="">Seleccione una Opción</option>
+                        <option value="1">Fonasa</option>
+                        <option value="2">Isapre</option>
+                     </select>
+  				</div>
+					
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						  <label for="direccion">Dirección</label>
+						  <input type="text" id="direccion" name="direccion" class="form-control" required>
+						         
+					</div>
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						  <label for="comuna">Comuna</label>
+						  <input type="text" id="comuna" name="comuna" class="form-control" required>
+						         
+					</div>
+					
+				</div>
+					
+				
+				<div class="col-md-6">
+					<div class="form-group">
+						  <label for="edad">Edad</label>
+						  <input type="text" id="edad" name="edad" class="form-control" required>
 						         
 					</div>
 					
@@ -104,7 +135,17 @@
 			  }
 			}
 			
-			
+			const apellidoInput = document.getElementById('apellido');
+		    const apellidoError = document.getElementById('apellido-error');
+		    
+		    apellidoInput.addEventListener('blur', () => {
+		        if (apellidoInput.value.length < 10) {
+		            apellidoError.style.display = 'inline';
+		        } else {
+		            apellidoError.style.display = 'none';
+		        }
+		    });
+		    
 		    const inputNombre = document.querySelector('#nombre');
 		    const nombreError = document.querySelector('#nombre-error');
 
