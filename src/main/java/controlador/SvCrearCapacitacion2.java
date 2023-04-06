@@ -9,23 +9,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import interfaces.ICapacitacionDao;
 import modelo.Capacitacion;
-import modelo.CapacitacionDaoImpl;
+
 
 
 
 /**
  * Servlet implementation class CrearCapacitacion
  */
-@WebServlet("/SvCrearCapacitacion")
-public class SvCrearCapacitacion extends HttpServlet {
+@WebServlet("/SvCrearCapacitacion2")
+public class SvCrearCapacitacion2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SvCrearCapacitacion() {
+	public SvCrearCapacitacion2() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -62,42 +61,37 @@ public class SvCrearCapacitacion extends HttpServlet {
 	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// Obtener los parámetros del formulario
-		String nombreCapacitacion = request.getParameter("nombreCapacitacion");
-		long rut = Long.parseLong(request.getParameter("rut"));
-		String dia = request.getParameter("dia");
-		String hora = request.getParameter("hora");
-		String lugar = request.getParameter("lugar");
-		String duracion = request.getParameter("duracion");
-		String cantidadAsistentesStr = request.getParameter("cantidadAsistentes");
-		int cantidadAsistentes = 0;
-		if(cantidadAsistentesStr != null && !cantidadAsistentesStr.isEmpty()) {
-		   cantidadAsistentes = Integer.parseInt(cantidadAsistentesStr);
-		}
+	        throws ServletException, IOException {
+	    // Obtener los parámetros del formulario
+	    String nombreCapacitacion = request.getParameter("nombreCapacitacion");
+	    long rut = Long.parseLong(request.getParameter("rut"));
+	    String dia = request.getParameter("dia");
+	    String hora = request.getParameter("hora");
+	    String lugar = request.getParameter("lugar");
+	    String duracion = request.getParameter("duracion");
+	    String cantidadAsistentesStr = request.getParameter("cantidadAsistentes");
+	    int cantidadAsistentes = 0;
+	    if (cantidadAsistentesStr != null && !cantidadAsistentesStr.isEmpty()) {
+	        cantidadAsistentes = Integer.parseInt(cantidadAsistentesStr);
+	    }
 
-		// Crear el objeto de tipo Capacitacion con los parámetros recibidos
-		Capacitacion nuevaCapacitacion = new Capacitacion();
+	    // Crear el objeto de tipo Capacitacion con los parámetros recibidos
+	    Capacitacion nuevaCapacitacion = new Capacitacion();
 	    nuevaCapacitacion.setNombreCapacitacion(nombreCapacitacion);
-		nuevaCapacitacion.setRut(rut);
-		nuevaCapacitacion.setDia(dia);
-		nuevaCapacitacion.setHora(hora);
-		nuevaCapacitacion.setLugar(lugar);
-		nuevaCapacitacion.setDuracion(duracion);
-		nuevaCapacitacion.setCantidadAsistentes(cantidadAsistentes);
+	    nuevaCapacitacion.setRut(rut);
+	    nuevaCapacitacion.setDia(dia);
+	    nuevaCapacitacion.setHora(hora);
+	    nuevaCapacitacion.setLugar(lugar);
+	    nuevaCapacitacion.setDuracion(duracion);
+	    nuevaCapacitacion.setCantidadAsistentes(cantidadAsistentes);
 
-		// Registrar la capacitación en la base de datos a través del DAO
-		ICapacitacionDao capacitacionDao = new CapacitacionDaoImpl();
-		boolean registroExitoso = capacitacionDao.registrar(nuevaCapacitacion);
+	    // Obtener una representación en forma de cadena de la capacitación
+	    String capacitacionStr = nuevaCapacitacion.toString();
 
-		// Redirigir al usuario a una página de confirmación (o mostrar un mensaje en la
-		// misma página)
-		if (registroExitoso) {
-			response.sendRedirect("ListarCapacitaciones.jsp");
-		} else {
-			response.sendRedirect("CreacionDeCapacitacion.jsp");
-		}
+	    // Guardar la cadena en un atributo de la solicitud
+	    request.setAttribute("capacitacionStr", capacitacionStr);
 
+	    // Enviar la cadena a la vista JSP para mostrarla en pantalla
+	    request.getRequestDispatcher("CrearCreacionCapacitacion.jsp").forward(request, response);
 	}
-     	
 }

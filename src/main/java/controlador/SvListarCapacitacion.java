@@ -1,8 +1,8 @@
 package controlador;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import interfaces.ICapacitacion;
 import interfaces.ICapacitacionDao;
 import modelo.Capacitacion;
 import modelo.CapacitacionDaoImpl;
+import implementacion.CapacitacionImpl;
 
 
 /**
@@ -37,19 +38,19 @@ public class SvListarCapacitacion extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
             // Obtener la sesión actual
             HttpSession session = request.getSession();
-            
+
             // Obtener un atributo de sesión
             String username = (String) session.getAttribute("username");
 
             //Verificar que la session este activa
             if (session.getAttribute("username") != null) {
-            
+
                 ICapacitacionDao capacitacionDao = new CapacitacionDaoImpl();
 		        miArrayList = capacitacionDao.obtener();
-		
+
 		// Establecer el atributo miLista en el objeto request
 		request.setAttribute("miLista", miArrayList);
 
@@ -62,6 +63,32 @@ public class SvListarCapacitacion extends HttpServlet {
         }
 
     }
+    
+/**
+ * 	Trae 3 capacitaciones de la clase Capacitacion
+ */
+//    @Override
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//
+//        HttpSession session = request.getSession();
+//        String username = (String) session.getAttribute("username");
+//
+//        //Verificar que la sesión esté activa
+//        if (session.getAttribute("username") != null) {
+//
+//            ICapacitacion capacitacion = new CapacitacionImpl();
+//
+//            List<Capacitacion> miArrayList = capacitacion.obtenerCapacitaciones();
+//
+//            request.setAttribute("miLista", miArrayList);
+//
+//            request.getRequestDispatcher("ListarCapacitaciones.jsp").forward(request, response);
+//
+//        } else {
+//            request.getRequestDispatcher("login.jsp").forward(request, response);
+//        }
+//    }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

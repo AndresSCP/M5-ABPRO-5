@@ -2,32 +2,28 @@ package modelo;
 
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import interfaces.IUsuarioDAO;
 import conexion.ConexionSingleton;
 //import clases.Usuario;
+import interfaces.IUsuarioDao;
 
 
-public class DaoUsuarioImp  implements IUsuarioDAO {
-	
+public class UsuarioDaoImpl  implements IUsuarioDao {
+
 	private Connection conn;
-	
-	
 
-	public DaoUsuarioImp() {
+	public UsuarioDaoImpl() {
 		conn = ConexionSingleton.conectar();
 	}
 
 	@Override
 	public void addUsuario(Usuario usuario) throws Exception {
-		try {
-			 PreparedStatement st = conn.prepareStatement("INSERT INTO usuarios (run, nombre, fechaNac, tipo) VALUES (?,?,?,?);");
+		try {PreparedStatement st = conn.prepareStatement("INSERT INTO usuarios (run, nombre, fechaNac, tipo) VALUES (?,?,?,?);");
 			 
 			 st.setInt(1, usuario.getRunUsuario());
 			 st.setString(2, usuario.getNombreUsuario());
@@ -35,8 +31,8 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 			 st.setInt(4, usuario.getTipoUsuario());
 			 
 			 st.executeUpdate();
-	         
-	 
+
+
 		}catch(Exception e) {
 			throw e;
 		}finally {
@@ -48,10 +44,8 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		        }
 		    }
 		}
-		
-	}
 
-  
+	}
 	
 	@Override
 	public void updateUsuario(Usuario usuario) throws Exception {
@@ -60,7 +54,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 			 st.setString(1, usuario.getNombreUsuario());
 			 st.setInt(2, usuario.getRunUsuario());
 			 st.executeUpdate();
-			
+
 		}catch(Exception e) {
 			throw e;
 		}finally {
@@ -72,7 +66,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		        }
 		    }
 		}
-		
+
 	}
 
 	@Override
@@ -81,7 +75,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 			 PreparedStatement st = conn.prepareStatement("DELETE FROM usuarios WHERE run= ?");
 			 st.setInt(1, usuario.getRunUsuario());
 			 st.executeUpdate();
-		 
+
 		}catch(Exception e) {
 			throw e;
 		}finally {
@@ -93,7 +87,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		        }
 		    }
 		}
-		
+
 	}
 
 	@Override

@@ -1,6 +1,11 @@
 package modelo;
 
-public class Capacitacion {
+import java.util.List;
+import java.util.ArrayList;
+
+import interfaces.ICapacitacion;
+
+public class Capacitacion implements ICapacitacion{
 
 	private int id;
 	private String nombreCapacitacion;
@@ -11,11 +16,11 @@ public class Capacitacion {
 	private String duracion;
 	private int cantidadAsistentes;
 
-	
+
 	/** metodo constructor vacio*/
 	public Capacitacion() {
 	}
-	
+
 	/** metodo constructor con los atributos como parametros */
 	public Capacitacion(int id, String nombreCapacitacion,long rut, String dia, String hora, String lugar, String duracion, int cantidadAsistentes ) {
 
@@ -92,12 +97,30 @@ public class Capacitacion {
 	public void setCantidadAsistentes(int cantidadAsistentes) {
 		this.cantidadAsistentes = cantidadAsistentes;
 	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "Capacitacion [id=" + id + ", nombreCapacitacion=" + nombreCapacitacion + ", rut=" + rut + ", dia=" + dia
-				+ ", hora=" + hora + ", lugar=" + lugar + ", duracion=" + duracion + ", cantidadAsistentes="
-				+ cantidadAsistentes + "]";
+		return "Capacitacion id:" + id + ", Nombre:" + nombreCapacitacion + ", Rut:" + rut + ", Dia:" + dia
+				+ ", Hora:" + hora + ", Lugar:" + lugar + ", Duracion:" + duracion + ", Cantidad de Asistentes:"
+				+ cantidadAsistentes;
 	}
-	
+
+	@Override
+	public List<Capacitacion> obtenerCapacitaciones() {
+		List<Capacitacion>capacitacion = new ArrayList<>();
+		capacitacion.add(new Capacitacion (8, "Capacitacion 8", 189746, "Martes", "11:00", "Valparaiso", "20",12));
+		capacitacion.add(new Capacitacion (9, "Capacitacion 9", 189556, "Lunes", "12:00", "Villa Alemana", "5",4));
+		capacitacion.add(new Capacitacion (10, "Capacitacion 10", 173125, "Miercoles", "11:00", "Quilpue", "2",20));
+		return capacitacion;
+	}
+
+	@Override
+	public String registrarCapacitacion(Capacitacion capacitacion) {
+		
+		return capacitacion.toString();
+		
+	}
+
 }
