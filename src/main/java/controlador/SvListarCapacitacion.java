@@ -19,7 +19,7 @@ import modelo.CapacitacionDaoImpl;
 /**
  * Servlet implementation class ContactoServletJSP
  */
-@WebServlet("/ListarCapServlet")
+@WebServlet("/SvListarCapacitacion")
 public class SvListarCapacitacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private List<Capacitacion> miArrayList = new ArrayList<>();
