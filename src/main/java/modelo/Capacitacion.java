@@ -102,9 +102,9 @@ public class Capacitacion implements ICapacitacion{
 
 	@Override
 	public String toString() {
-		return "Capacitacion [id=" + id + ", nombreCapacitacion=" + nombreCapacitacion + ", rut=" + rut + ", dia=" + dia
-				+ ", hora=" + hora + ", lugar=" + lugar + ", duracion=" + duracion + ", cantidadAsistentes="
-				+ cantidadAsistentes + "]";
+		return "Capacitacion id:" + id + ", Nombre:" + nombreCapacitacion + ", Rut:" + rut + ", Dia:" + dia
+				+ ", Hora:" + hora + ", Lugar:" + lugar + ", Duracion:" + duracion + ", Cantidad de Asistentes:"
+				+ cantidadAsistentes;
 	}
 
 	@Override
