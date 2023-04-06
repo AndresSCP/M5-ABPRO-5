@@ -1,7 +1,7 @@
 package modelo;
 
 public class Administrativo extends Usuario {
-
+	private int run;
 	private String area;
 	private String expPrevia;
 	private String email;
@@ -17,11 +17,20 @@ public class Administrativo extends Usuario {
 
 	public Administrativo(Integer runUsuario, String nombreUsuario, String fechaNacimientoUsuario,Integer tipoUsuario, String area, String expPrevia, String email) {
 		super(runUsuario, nombreUsuario, fechaNacimientoUsuario, tipoUsuario);
+		this.run= run;
 		this.area = area;
 		this.expPrevia = expPrevia;
 		this.email = email;
 	}
-
+	
+	public int getRun() {
+		return run;
+	}
+	
+	public void setRun(int run) {
+		this.run = run;
+	}
+	
 	public String getArea() {
 		return area;
 	}
