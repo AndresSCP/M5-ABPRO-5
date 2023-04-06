@@ -1,13 +1,13 @@
 package interfaces;
-import clases.Profesional; 
+import modelo.Profesional; 
 
 import java.util.List;
 
 
-public interface IProfesionalDAO {
+public interface IProfesionalDao {
   
     public void actualizarProfesional(Profesional profesional);
     public void eliminarProfesional(int run);    
-    public List<Profesional> obtenerTodosLosProfesionales();
+    public List<modelo.Profesional> obtenerTodosLosProfesionales();
 	void insertarProfesional(Profesional profesional);
 }

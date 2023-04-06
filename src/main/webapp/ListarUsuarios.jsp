@@ -21,7 +21,7 @@
                         
                         <th>RUN Usuario</th>
                         <th>Nombres</th>
-                        <th>Apellidos</th>
+                        
                         <th>Fecha de Nacimiento</th>                       
                     </tr>
                 </thead>
@@ -34,7 +34,7 @@
                         <tr>
                             <th>${usuario.runUsuario}</th>
                             <td>${usuario.nombreUsuario}</td>
-                            <td>${usuario.apellidoUsuario}</td>
+                           
                             <td>${usuario.fechaNacimientoUsuario}</td>
                                                          
                         </tr>

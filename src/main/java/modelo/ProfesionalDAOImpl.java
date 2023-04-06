@@ -9,15 +9,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import interfaces.*;
-import clases.*;
+import modelo.*;
 import conexion.ConexionSingleton;
-import interfaces.IProfesionalDAO;
-import clases.Profesional;
-import interfaces.IProfesionalDAO;
+import modelo.Profesional;
 
-public class ProfesionalDAOImpl implements IProfesionalDAO {
 
-	private Connection conexion = ConexionSingleton.getConexion();
+public class ProfesionalDAOImpl implements IProfesionalDao {
+
+	private Connection conexion = ConexionSingleton.conectar();
 	
  
     public void insertarProfesional(Profesional profesional) {
@@ -28,16 +27,16 @@ public class ProfesionalDAOImpl implements IProfesionalDAO {
             conexion.setAutoCommit(false);
             
             PreparedStatement statementUsuarios = conexion.prepareStatement(sqlUsuarios);
-            statementUsuarios.setInt(1, profesional.getRun());
-            statementUsuarios.setString(2, profesional.getNombre());
-            statementUsuarios.setDate(3, (java.sql.Date) profesional.getFechaNac());
-            statementUsuarios.setInt(4, profesional.getTipo());
+            statementUsuarios.setInt(1, profesional.getRunUsuario());
+            statementUsuarios.setString(2, profesional.getNombreUsuario());
+            statementUsuarios.setString(3,  profesional.getFechaNacimientoUsuario());
+            statementUsuarios.setInt(4, profesional.getTipoUsuario());
             statementUsuarios.executeUpdate();
             
             PreparedStatement statementProfesionales = conexion.prepareStatement(sqlProfesionales);
-            statementProfesionales.setInt(1, profesional.getRun());
+            statementProfesionales.setInt(1, profesional.getRunUsuario());
             statementProfesionales.setString(2, profesional.getTituloProfesional());
-            statementProfesionales.setDate(3, (java.sql.Date) profesional.getFechaIngreso());
+            statementProfesionales.setString(3,  profesional.getFechaIngreso());
             statementProfesionales.setString(4, profesional.getProyecto());
             statementProfesionales.executeUpdate();
             
@@ -55,7 +54,6 @@ public class ProfesionalDAOImpl implements IProfesionalDAO {
     }
 
 
-    @Override
     public void actualizarProfesional(Profesional profesional) {
         try {
             String sqlProfesionales = "UPDATE profesionales SET tituloProfesional=?, fechaIngreso=?, proyecto=? WHERE run=?";
@@ -65,16 +63,16 @@ public class ProfesionalDAOImpl implements IProfesionalDAO {
             
             PreparedStatement statementProfesionales = conexion.prepareStatement(sqlProfesionales);
             statementProfesionales.setString(1, profesional.getTituloProfesional());
-            statementProfesionales.setDate(2, (java.sql.Date) profesional.getFechaIngreso());
+            statementProfesionales.setString(2,  profesional.getFechaIngreso());
             statementProfesionales.setString(3, profesional.getProyecto());
-            statementProfesionales.setInt(4, profesional.getRun());
+            statementProfesionales.setInt(4, profesional.getRunUsuario());
             statementProfesionales.executeUpdate();
             
             PreparedStatement statementUsuarios = conexion.prepareStatement(sqlUsuarios);
-            statementUsuarios.setString(1, profesional.getNombre());
-            statementUsuarios.setDate(2, (java.sql.Date) profesional.getFechaNac());
-            statementUsuarios.setInt(3, profesional.getTipo());
-            statementUsuarios.setInt(4, profesional.getRun());
+            statementUsuarios.setString(1, profesional.getNombreUsuario());
+            statementUsuarios.setString(2, profesional.getFechaNacimientoUsuario());
+            statementUsuarios.setInt(3, profesional.getTipoUsuario());
+            statementUsuarios.setInt(4, profesional.getRunUsuario());
             statementUsuarios.executeUpdate();
             
             conexion.commit();
@@ -91,7 +89,6 @@ public class ProfesionalDAOImpl implements IProfesionalDAO {
     }
 
 
-    @Override
     public void eliminarProfesional(int run) {
         try {
             String sql = "DELETE FROM profesionales WHERE run=?; DELETE FROM usuarios WHERE run=?";
@@ -104,7 +101,6 @@ public class ProfesionalDAOImpl implements IProfesionalDAO {
         }
     }
     
-    @Override
     public List<Profesional> obtenerTodosLosProfesionales() {
     	
     	String query = "SELECT p.*, u.nombre,u.fechaNac,u.tipo FROM profesionales ";
@@ -119,10 +115,10 @@ public class ProfesionalDAOImpl implements IProfesionalDAO {
                 		
                         resultSet.getInt("run"),
                         resultSet.getString("tituloProfesional"),
-                        resultSet.getDate("fechaIngreso"),
+                        resultSet.getString("fechaIngreso"),
                         resultSet.getString("proyecto"),
                         resultSet.getString("nombre"),
-                        resultSet.getDate("fechaNac"),
+                        resultSet.getString("fechaNac"),
                         resultSet.getInt("tipo")
                        
                 );
@@ -134,6 +130,9 @@ public class ProfesionalDAOImpl implements IProfesionalDAO {
         }
         return listaProfesionales;
     }
+
+
+
 
 
 }
