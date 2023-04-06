@@ -79,4 +79,8 @@ p{
 padding-bot: 100%;
 }
 
+#BodyCrearCapacitacionM{
+	background-image: url('../imagenes/celeste13.jpg');
+	background-size:cover;
+}
 

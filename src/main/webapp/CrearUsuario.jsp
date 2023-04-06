@@ -16,12 +16,12 @@
 <body id="bodycapacitacion">
 	<div class="container">
 		<h1 class="text-center">Crear Usuario</h1>
-		<form action="svCrearUsuario" method="post">
+		<form action="CrearUserServlet" method="post">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
 						<div class="form-group">
-						    <label for="nombre">Nombres de Usuario:</label>
+						    <label for="nombre">Nombres del Usuario</label>
 						    <input type="text" id="nombre" name="nombre" class="form-control" maxlength="30" minlength="10" required>
 						    <span id="nombre-error" class="text-danger d-none">Ingrese al menos 10 caracteres.</span>
 						</div>
@@ -29,14 +29,9 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-					    <label for="tipoUsuario">Tipo de Usuario</label>
-					    <select id="tipoUsuario" name="tipoUsuario" class="form-control" required>
-					        <option value="">Seleccione un tipo de usuario</option>
-					        <option value=1>Cliente</option>
-					        <option value=2>Profesional</option>
-					        <option value=3>Administrativo</option>
-					    </select>
-					    <span id="tipoUsuario-error" class="text-danger" style="display: none;">Seleccione un tipo de usuario.</span>
+					    <label for="apellido">Apellidos del Usuario</label>
+					    <input type="text" id="apellido" name="apellido" class="form-control" maxlength="30" minlength="10" required>
+					    <span id="apellido-error" class="text-danger" style="display: none;">Ingrese al menos 10 caracteres.</span>
 					</div>
 				</div>
 			</div>
@@ -104,7 +99,17 @@
 			  }
 			}
 			
-			
+			const apellidoInput = document.getElementById('apellido');
+		    const apellidoError = document.getElementById('apellido-error');
+		    
+		    apellidoInput.addEventListener('blur', () => {
+		        if (apellidoInput.value.length < 10) {
+		            apellidoError.style.display = 'inline';
+		        } else {
+		            apellidoError.style.display = 'none';
+		        }
+		    });
+		    
 		    const inputNombre = document.querySelector('#nombre');
 		    const nombreError = document.querySelector('#nombre-error');
 
