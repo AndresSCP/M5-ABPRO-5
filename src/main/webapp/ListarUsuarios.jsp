@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -21,8 +22,8 @@
                         
                         <th>RUN Usuario</th>
                         <th>Nombres</th>
-                        
-                        <th>Fecha de Nacimiento</th>                       
+                        <th>Fecha de Nacimiento</th>
+                        <th>Tipo Usuario</th>                       
                     </tr>
                 </thead>
 
@@ -34,8 +35,8 @@
                         <tr>
                             <th>${usuario.runUsuario}</th>
                             <td>${usuario.nombreUsuario}</td>
-                           
                             <td>${usuario.fechaNacimientoUsuario}</td>
+                            <td>${usuario.tipoUsuario}</td>
                                                          
                         </tr>
                 
