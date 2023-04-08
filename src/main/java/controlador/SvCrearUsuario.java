@@ -16,7 +16,7 @@ import modelo.Usuario;
 /**
  * Servlet implementation class CrearCapacitacion
  */
-@WebServlet("/svCrearUsuario")
+@WebServlet("/SvCrearUsuario")
 public class SvCrearUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
