@@ -16,7 +16,7 @@
 <body id="bodycapacitacion">
 	<div class="container">
 		<h1 class="text-center">Crear Usuario</h1>
-		<form action="CrearUserServlet" method="post">
+		<form action="SvCrearUsuario" method="post">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
@@ -112,7 +112,6 @@
 		    
 		    const inputNombre = document.querySelector('#nombre');
 		    const nombreError = document.querySelector('#nombre-error');
-
 		    inputNombre.addEventListener('input', () => {
 		        if (inputNombre.value.length < 10) {
 		            nombreError.classList.remove('d-none');
