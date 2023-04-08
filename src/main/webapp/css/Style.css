@@ -1,10 +1,13 @@
 @charset "UTF-8";
 
+
+/* Estilo de el Index  */
 #bodyindex{
 	background-image: url('../imagenes/celeste.jpg');
 	background-size:cover;
 }
 
+/* Estilo de pagina login  */
 #bodylogin{
 	background-image: url('../imagenes/preve.jpg');
   	background-size: auto 250%;	
@@ -16,16 +19,17 @@
 	padding-right:auto;
 }
 
-
+/* Color y estilo letras de Quienes somos   */
 h2 {
 	text-shadow: 2px 2px 5px black;
 	font-style: italic;
 }
 
+/* Estilo Parrafo quienes somos de Index  */
 #quienesSomos {
 	background-image: url('../imagenes/violeta5.jpg')
 }
-
+/* Estilo Parrafo texto descriptivo de index   */
 #parrafo1{
 	
 	background-image: url('../imagenes/azules1.jpg');
@@ -36,6 +40,7 @@ p{
 	color: white;
 }
 
+/* Estilo de Footer  */
 #footer {
 	
 
@@ -43,6 +48,7 @@ p{
   bottom: 0;
   width: 100%;
 }
+
 
 #lista{
 	background-color: #f9f9f9;
@@ -56,21 +62,23 @@ p{
 	background-image: url('../imagenes/violeta2.jpg');
 }
 
+/* Estilo de pagina Capacitacion */
 #bodycapacitacion{
 	background-image: url('../imagenes/celeste13.jpg');
 	background-size:cover;
 }
 
+/* Estilo de pagina contacto  */
 #bodycontacto{
 	background-image: url('../imagenes/celeste13.jpg');
 	background-size:cover;
 }
-
+/* Estilo de paginas de listar capacitacion,cliente,usuario  */
 #bodylistado{
 	background-image: url('../imagenes/celeste13.jpg');
 	background-size:cover;
 }
-
+/* Estilo de el Navbar */
 #bodynav {
 	background-image: url('../imagenes/violeta2.jpg');
 }
@@ -79,6 +87,7 @@ p{
 padding-bot: 100%;
 }
 
+/* Estilo Crear Capacitacion  */
 #BodyCrearCapacitacionM{
 	background-image: url('../imagenes/celeste13.jpg');
 	background-size:cover;
