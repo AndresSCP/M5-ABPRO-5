@@ -47,7 +47,7 @@ public class SvCrearCapacitacion2 extends HttpServlet {
 		// Verificar que la session este activa
 		if (session.getAttribute("username") != null) {
 			// Llamamos a la página JSP del formulario de contacto
-			request.getRequestDispatcher("CreacionDeCapacitacion.jsp").forward(request, response);
+			request.getRequestDispatcher("CrearCapacitacionMensaje.jsp").forward(request, response);
 		} else {
 			// Se redirige la pagina a login
 			request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -92,6 +92,6 @@ public class SvCrearCapacitacion2 extends HttpServlet {
 	    request.setAttribute("capacitacionStr", capacitacionStr);
 
 	    // Enviar la cadena a la vista JSP para mostrarla en pantalla
-	    request.getRequestDispatcher("CrearCreacionCapacitacion.jsp").forward(request, response);
+	    request.getRequestDispatcher("CrearCapacitacionMensaje.jsp").forward(request, response);
 	}
 }
