@@ -55,11 +55,11 @@ p{
 }
 
 #titulofoot{
-	background-image: url('../imagenes/violeta2.jpg');
+	background-color: #c9d8e5;
 }
 
 #calendario{
-	background-image: url('../imagenes/violeta2.jpg');
+	background-color: #c9d8e5;
 }
 
 /* Estilo de pagina Capacitacion */
@@ -80,7 +80,9 @@ p{
 }
 /* Estilo de el Navbar */
 #bodynav {
-	background-image: url('../imagenes/violeta2.jpg');
+	background-color: #c9d8e5;
+	
+	
 }
 
 .image-container {

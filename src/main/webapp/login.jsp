@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Inicio de Sesion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -12,8 +13,10 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/Style.css">
 </head>
+
+<!-- Formulario de inicio de sesion -->
 <body id="bodylogin">
-<h1 class="text-center" id="textlogin" >Inicio de sesión</h1>
+	<h1 class="text-center" id="textlogin">Inicio de sesión</h1>
 
 	<div class="conteiner-fluid" id="textlogin">
 		<div class="row">
@@ -41,6 +44,7 @@
 		</div>
 	</div>
 	<br>
+	<!-- verificacion si hay un mensaje de error en la solicitud HTTP.Si el atributo "mensajeError" está establecido, se muestra un mensaje de error -->
 	<%
 	if (request.getAttribute("mensajeError") != null) {
 	%>
@@ -56,7 +60,7 @@
 	<%
 	}
 	%>
-	
+
 	<%@include file="extras/footer.jsp"%>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

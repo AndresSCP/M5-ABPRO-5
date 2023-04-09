@@ -1,5 +1,7 @@
+<!--stablecer la configuración básica de la página JSP actual, como el lenguaje de programación, el tipo de contenido y el conjunto de caracteres.-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!--JSLT es una biblioteca de etiquetas personalizadas que se puede utilizar en páginas JSP para simplificar la escritura de código -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -15,14 +17,18 @@
 
 <%@include file="extras/Navbar.jsp"%>
 </head>
+<!-- Formulario Crear Usuario -->
 <body id="bodycapacitacion">
 	<div class="container">
 		<h1 class="text-center">Crear Usuario</h1>
+
+		<!--La etiqueta form especifica que la información del formulario será enviada al servidor en una petición HTTP POST cuando se envíe el formulario.-->
 		<form action="svCrearUsuario" method="post">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
 						<div class="form-group">
+						 <!--La etiqueta label: proporciona una etiqueta descriptiva para el campo de entrada -->
 							<label for="nombre">Nombres de Usuario:</label> <input
 								type="text" id="nombre" name="nombre" class="form-control"
 								maxlength="30" minlength="10" required> <span
@@ -59,10 +65,6 @@
 
 				</div>
 				<br>
-
-
-
-
 
 			</div>
 
@@ -111,7 +113,7 @@
 	</div>
 
 	<br>
-
+	<!-- Footer con la etiqueta include   -->
 	<%@include file="extras/footer.jsp"%>
 	<script src="js/dnone.js"></script>
 </body>
@@ -125,6 +127,7 @@
 	integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
 	crossorigin="anonymous"></script>
 
+<!--código de JavaScript que contiene dos funciones para validar el RUT  y el nombre de un usuario  -->
 <script>
 			function validarRut() {
 			  var rut = document.getElementById("run").value;
